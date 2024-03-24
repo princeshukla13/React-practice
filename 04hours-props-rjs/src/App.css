@@ -40,3 +40,22 @@
 .read-the-docs {
   color: #888;
 }
+.btn{
+  margin-left: 23px;
+  padding: 23px;
+}
+ 
+/* Style for input */
+input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none; /* Removes the default focus outline */
+}
+
+/* Style for input on focus */
+input:focus {
+  border-color: #007bff; /* Changes border color when input is focused */
+  box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25); /* Adds a subtle shadow when input is focused */
+}
