@@ -6,26 +6,32 @@ import Heading from "../components/Heading";
 import Addtodo from "../components/Addtodo";
 // import Showsitem from "../components/Showsitem";
 import Todoitem from "../components/Todoitem";
+import Welcome from "../components/Welcome";
 function App() {
-  const todos = [
-    {
-      name: "buymilk",
-      date: "12/02/23",
-    },
-    {
-      name: "gotoclg",
-      date: "12/02/23",
-    },
-    {
-      name: "gotoclg",
-      date: "12/02/23",
-    },
-  ];
+  let [todos, settodos] = useState([]);
+  const onnewitem = (itemname, itemdate) => {
+    const newitems = [
+      ...todos,
+
+      {
+        name: itemname,
+        date: itemdate,
+      },
+    ];
+    settodos(newitems);
+    console.log(itemname, itemdate);
+  };
+  const handleondelete = (todoitemname) => {
+    const newdeleteitem = todos.filter((item) => item.name !== todoitemname);
+    settodos(newdeleteitem);
+    console.log(todoitemname);
+  };
   return (
     <center className="todo-item">
       <Heading />
-      <Addtodo />
-      <Todoitem todos={todos} />
+      <Addtodo onnewitem={onnewitem} />
+      {todos.length == 0 && <Welcome />}
+      <Todoitem todos={todos} handleondelete={handleondelete} />
     </center>
   );
 }

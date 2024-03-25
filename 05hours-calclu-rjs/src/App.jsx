@@ -1,16 +1,27 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+
 import "./App.css";
 import Display from "../components/Display";
 import ButtonCon from "../components/ButtonCon";
 
 function App() {
+  let [calval, setcalval] = useState("");
+  let onclickedbtn = (buttontext) => {
+    if (buttontext === "C") {
+      setcalval("");
+    } else if (buttontext === "=") {
+      let result = eval(calval);
+      setcalval(result);
+    } else {
+      let newdisplayvalue = calval + buttontext;
+      setcalval(newdisplayvalue);
+    }
+  };
   return (
     <>
       <div className="calculator">
-        <Display />
-        <ButtonCon />
+        <Display displayvalue={calval} />
+        <ButtonCon onclickedbtn={onclickedbtn} />
       </div>
     </>
   );

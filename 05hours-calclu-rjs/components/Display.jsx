@@ -1,9 +1,9 @@
 import React from "react";
 
-function Display() {
+function Display({ displayvalue }) {
   return (
     <div>
-      <input type="text" id="display" disabled />
+      <input type="text" id="display" disabled value={displayvalue} readOnly />
     </div>
   );
 }

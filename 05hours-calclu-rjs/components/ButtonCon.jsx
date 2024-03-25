@@ -1,6 +1,6 @@
 import React from "react";
 
-function ButtonCon() {
+function ButtonCon({ onclickedbtn }) {
   const ButtonName = [
     "C",
     "1",
@@ -23,7 +23,9 @@ function ButtonCon() {
     <>
       <div class="row">
         {ButtonName.map((buttonname) => (
-          <button className="clear">{buttonname}</button>
+          <button className="clear" onClick={() => onclickedbtn(buttonname)}>
+            {buttonname}
+          </button>
         ))}
       </div>
     </>
